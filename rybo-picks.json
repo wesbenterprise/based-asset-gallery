@@ -1,1 +1,18 @@
-[]
+{
+  "picks": [
+    {"file": "favicons/002-minimalist-shield-badge-icon-for-a-tech-.png", "category": "favicons"},
+    {"file": "category-icons/001-neon-line-art-icon-of-a-rising-bar-chart.webp", "category": "category-icons-finance"},
+    {"file": "category-icons/001-neon-line-art-icon-of-a-hotel-building-w.webp", "category": "category-icons-property"},
+    {"file": "category-icons/001-neon-line-art-icon-of-an-open-book-with-.webp", "category": "category-icons-education"},
+    {"file": "category-icons/001-neon-line-art-icon-of-interlocking-gears.webp", "category": "category-icons-operations"},
+    {"file": "category-icons/001-neon-line-art-icon-of-a-party-popper-wit.webp", "category": "category-icons-events"},
+    {"file": "category-icons/001-neon-line-art-icon-of-a-microscope-with-.webp", "category": "category-icons-research"},
+    {"file": "agent-avatars/001-comic-book-style-portrait-of-ace-a-male-.png", "category": "agent-avatars"},
+    {"file": "agent-avatars/002-comic-book-style-portrait-of-astra-a-fem.png", "category": "agent-avatars"},
+    {"file": "agent-avatars/003-comic-book-style-portrait-of-dezayas-a-m.png", "category": "agent-avatars"},
+    {"file": "agent-avatars/002-comic-book-style-portrait-of-rybo-a-male.png", "category": "agent-avatars"},
+    {"file": "agent-avatars/001-comic-book-style-portrait-of-charles-a-m.png", "category": "agent-avatars"},
+    {"file": "og-cards/002-social-media-preview-card-for-based-comm.png", "category": "og-cards"},
+    {"file": "backgrounds/001-seamless-dark-circuit-board-texture-patt.png", "category": "backgrounds"}
+  ]
+}
