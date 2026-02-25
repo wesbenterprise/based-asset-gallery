@@ -3,300 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BASeD Asset Gallery</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<title>BASeD Asset Gallery — Review</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0f;color:#e0e0e0;font-family:'VT323',monospace;min-height:100vh}
-h1{font-family:'Orbitron',sans-serif;text-align:center;padding:2rem 1rem 0.5rem;font-size:2.2rem;
-  background:linear-gradient(90deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{text-align:center;color:#888;font-size:1.1rem;margin-bottom:2rem}
-h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:#00ffff;border-bottom:1px solid #ff00ff33;
-  padding:0.8rem 1.5rem;margin-top:2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;padding:1rem 1.5rem}
-.card{background:#12121a;border:2px solid #ffffff10;border-radius:8px;overflow:hidden;position:relative;transition:border-color 0.2s,transform 0.2s}
-.card:hover{transform:translateY(-2px)}
-.card.selected{border-color:#00ff66}
-.card .img-wrap{position:relative;cursor:pointer;height:180px;background:#08080d;display:flex;align-items:center;justify-content:center}
-.card .img-wrap img{max-width:100%;max-height:100%;object-fit:contain;padding:8px}
-.card .check{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#00ff6640;border:2px solid #00ff66;display:none;align-items:center;justify-content:center;font-size:16px;color:#00ff66}
-.card.selected .check{display:flex}
-.card .rybo-badge{position:absolute;top:8px;left:8px;background:#ff00ff;color:#fff;font-family:'Orbitron',sans-serif;font-size:0.55rem;padding:3px 6px;border-radius:4px;display:none;z-index:2}
-.card .rybo-badge.visible{display:block}
-.card .name{padding:4px 10px 2px;font-size:0.82rem;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.stars{padding:2px 10px 8px;display:flex;gap:2px}
-.stars span{cursor:pointer;font-size:1.4rem;color:#333;transition:color 0.15s}
-.stars span.on{color:#ffd700}
-.stars span:hover,.stars span:hover~span{color:#ffd70080}
-/* reverse hover trick — stars are laid out reversed via flex-direction */
-.stars{flex-direction:row}
-/* Lightbox */
-.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;align-items:center;justify-content:center;flex-direction:column}
-.lb.active{display:flex}
-.lb img{max-width:90vw;max-height:75vh;border:2px solid #ff00ff40;border-radius:4px}
-.lb .lb-name{color:#00ffff;font-family:'Orbitron',sans-serif;font-size:0.9rem;margin-top:1rem;text-align:center;max-width:90vw;word-break:break-all}
-.lb .close{position:absolute;top:1rem;right:1.5rem;color:#fff;font-size:2rem;cursor:pointer}
-.lb .lb-nav{display:flex;gap:1rem;margin-top:0.8rem}
-.lb .lb-nav button{background:#ff00ff30;border:1px solid #ff00ff;color:#fff;padding:6px 18px;border-radius:4px;cursor:pointer;font-family:'VT323',monospace;font-size:1rem}
-/* Picks FAB */
-.fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:900;display:flex;gap:0.5rem}
-.fab button{background:linear-gradient(135deg,#ff00ff,#8800aa);border:none;color:#fff;font-family:'Orbitron',sans-serif;
-  font-size:0.8rem;padding:14px 20px;border-radius:50px;cursor:pointer;box-shadow:0 4px 20px #ff00ff40;transition:transform 0.2s}
-.fab button:hover{transform:scale(1.05)}
-.fab .count{background:#00ff66;color:#000;font-size:0.7rem;padding:2px 7px;border-radius:10px;margin-left:6px}
-/* Sidebar */
-.sidebar{position:fixed;top:0;right:-420px;width:400px;max-width:90vw;height:100vh;background:#0d0d14;border-left:2px solid #ff00ff40;
-  z-index:1000;transition:right 0.3s;overflow-y:auto;padding:1.5rem}
-.sidebar.open{right:0}
-.sidebar h3{font-family:'Orbitron',sans-serif;color:#ff00ff;font-size:1.1rem;margin-bottom:1rem}
-.sidebar .cat-group{margin-bottom:1rem}
-.sidebar .cat-group h4{color:#00ffff;font-size:0.9rem;font-family:'Orbitron',sans-serif;margin-bottom:0.4rem}
-.sidebar .pick-item{display:flex;align-items:center;gap:0.5rem;padding:4px 0;font-size:0.9rem;color:#ccc}
-.sidebar .pick-item img{width:40px;height:40px;object-fit:contain;border-radius:4px;background:#08080d}
-.sidebar .pick-stars{color:#ffd700}
-.sidebar .actions{display:flex;gap:0.5rem;margin-top:1.5rem;flex-wrap:wrap}
-.sidebar .actions button{background:#12121a;border:1px solid #00ffff;color:#00ffff;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:'VT323',monospace;font-size:1rem}
-.sidebar .actions button:hover{background:#00ffff20}
-.sidebar .close-sb{position:absolute;top:1rem;right:1rem;color:#888;font-size:1.5rem;cursor:pointer}
-.toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);background:#00ff66;color:#000;padding:10px 24px;
-  border-radius:6px;font-family:'Orbitron',sans-serif;font-size:0.8rem;z-index:2000;opacity:0;transition:opacity 0.3s}
-.toast.show{opacity:1}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; color: #e0e0e0; font-family: 'SF Mono', 'Fira Code', monospace; padding: 2rem; }
+  h1 { color: #00e5ff; font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2.5rem; }
+  h2 { color: #ff6ec7; font-size: 1.2rem; margin: 2rem 0 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+  .card { background: #111118; border: 1px solid #1a1a2e; border-radius: 8px; overflow: hidden; transition: border-color 0.2s; }
+  .card:hover { border-color: #00e5ff; }
+  .card img { width: 100%; height: auto; display: block; cursor: pointer; }
+  .card .label { padding: 0.6rem 0.8rem; font-size: 0.75rem; color: #888; word-break: break-all; }
+  .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
 </style>
 </head>
 <body>
-<h1>BASeD Asset Gallery</h1>
-<p class="subtitle">Command Center Visual Assets — Click to select · Star to rate · Review &amp; export picks</p>
-<div id="app"></div>
+<h1>🎨 BASeD Asset Gallery — Review</h1>
+<p class="subtitle">Only items pending Wesley's review. Everything else already picked.</p>
 
-<div class="lb" id="lightbox">
-  <span class="close" onclick="closeLb()">&times;</span>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-name" id="lb-name"></div>
-  <div class="lb-nav"><button onclick="lbNav(-1)">◀ Prev</button><button onclick="lbNav(1)">Next ▶</button></div>
+<h2>📜 Charles — Historian (v3, Early 40s)</h2>
+<div class="grid" id="charles"></div>
+
+<h2>🌆 Logo Variants — Synthwave</h2>
+<div class="grid" id="logos"></div>
+
+<div class="lightbox" id="lb" onclick="this.classList.remove('active')">
+  <img id="lb-img" src="" alt="preview">
 </div>
-
-<div class="fab">
-  <button onclick="toggleSidebar()">My Picks <span class="count" id="pick-count">0</span></button>
-</div>
-
-<div class="sidebar" id="sidebar">
-  <span class="close-sb" onclick="toggleSidebar()">&times;</span>
-  <h3>My Picks</h3>
-  <div id="picks-list"></div>
-  <div class="actions">
-    <button onclick="copyPicks()">📋 Copy JSON</button>
-    <button onclick="showPicksSummary()">📄 Show Summary</button>
-    <button onclick="clearAll()">🗑 Clear All</button>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
 
 <script>
-const CATEGORIES = [
-  { title: "Ace — Chief of Staff ♠️", dir: "assets/agent-avatars/ace", key: "avatars_ace", files: [] },
-  { title: "Astra — Strategist 🔮", dir: "assets/agent-avatars/astra", key: "avatars_astra", files: [] },
-  { title: "Charles — Historian 📜", dir: "assets/agent-avatars/charles", key: "avatars_charles", files: [] },
-  { title: "Dezayas — Builder 🔧", dir: "assets/agent-avatars/dezayas", key: "avatars_dezayas", files: [] },
-  { title: "Rybo — Jester 🃏", dir: "assets/agent-avatars/rybo", key: "avatars_rybo", files: [] },
-  { title: "Category Icons", dir: "assets/category-icons", key: "category_icons", files: [] },
-  { title: "Favicons", dir: "assets/favicons", key: "favicons", files: [] },
-  { title: "OG Cards", dir: "assets/og-cards", key: "og_cards", files: [] },
-  { title: "Backgrounds", dir: "assets/backgrounds", key: "backgrounds", files: [] },
-  { title: "Logo Variants", dir: "assets/logo-variants", key: "logo_variants", files: [] },
-];
+const sections = {
+  charles: { dir: 'assets/charles-v3', files: [
+    '001-comic-book-style-portrait-of-a-male-ai-a.png',
+    '002-comic-book-style-portrait-of-a-male-ai-a.png',
+    '003-comic-book-style-portrait-of-a-male-ai-a.png',
+    '004-comic-book-style-portrait-of-a-male-ai-a.png',
+    '005-comic-book-style-portrait-of-a-male-ai-a.png',
+    '006-comic-book-style-portrait-of-a-male-ai-a.png'
+  ]},
+  logos: { dir: 'assets/logo-synthwave', files: [
+    '001-a-shield-badge-shaped-logo-for-based-bar.png',
+    '002-a-shield-badge-shaped-logo-for-based-bar.png',
+    '003-a-shield-badge-shaped-logo-for-based-bar.png'
+  ]}
+};
 
-// State: { "category/filename": { selected: bool, rating: 0-3 } }
-let state = JSON.parse(localStorage.getItem('based-picks') || '{}');
-let ryboPicks = {};
-let allCards = []; // flat list for lightbox nav
-let lbIndex = 0;
-
-function save() {
-  localStorage.setItem('based-picks', JSON.stringify(state));
-  updateCount();
-}
-function key(cat, f) { return cat + '/' + f; }
-function getState(k) { return state[k] || { selected: false, rating: 0 }; }
-
-function updateCount() {
-  const n = Object.values(state).filter(s => s.selected || s.rating > 0).length;
-  document.getElementById('pick-count').textContent = n;
-}
-
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
-}
-
-function renderCard(cat, f, container) {
-  const k = key(cat.title, f);
-  const src = cat.dir + '/' + f;
-  const s = getState(k);
-  const card = document.createElement('div');
-  card.className = 'card' + (s.selected ? ' selected' : '');
-  card.dataset.key = k;
-
-  const isRybo = ryboPicks[f] || ryboPicks[k];
-
-  card.innerHTML = `
-    <div class="img-wrap" data-src="${src}" data-name="${f}">
-      <img src="${src}" alt="${f}" loading="lazy">
-      <div class="check">✓</div>
-      <div class="rybo-badge ${isRybo ? 'visible' : ''}">🃏 RYBO'S PICK</div>
-    </div>
-    <div class="name" title="${f}">${f}</div>
-    <div class="stars">${[1,2,3].map(n => `<span data-n="${n}" class="${s.rating >= n ? 'on' : ''}">★</span>`).join('')}</div>
-  `;
-
-  // Click image to select
-  card.querySelector('.img-wrap').addEventListener('click', e => {
-    if (e.detail === 2) return; // ignore dblclick
-    const st = getState(k);
-    st.selected = !st.selected;
-    state[k] = st;
-    card.classList.toggle('selected', st.selected);
-    save();
-  });
-
-  // Double-click for lightbox
-  card.querySelector('.img-wrap').addEventListener('dblclick', e => {
-    e.preventDefault();
-    lbIndex = allCards.indexOf(k);
-    openLb(src, f);
-  });
-
-  // Stars
-  card.querySelectorAll('.stars span').forEach(star => {
-    star.addEventListener('click', e => {
-      e.stopPropagation();
-      const n = parseInt(star.dataset.n);
-      const st = getState(k);
-      st.rating = st.rating === n ? 0 : n; // toggle off if same
-      state[k] = st;
-      card.querySelectorAll('.stars span').forEach((s, i) => s.classList.toggle('on', i < st.rating));
-      save();
-    });
-  });
-
-  container.appendChild(card);
-  allCards.push(k);
-}
-
-function openLb(src, name) {
+function openLb(src) {
   document.getElementById('lb-img').src = src;
-  document.getElementById('lb-name').textContent = name;
-  document.getElementById('lightbox').classList.add('active');
+  document.getElementById('lb').classList.add('active');
 }
-function closeLb() { document.getElementById('lightbox').classList.remove('active'); }
-function lbNav(dir) {
-  lbIndex = (lbIndex + dir + allCards.length) % allCards.length;
-  const k = allCards[lbIndex];
-  const [cat, ...fp] = k.split('/');
-  const f = fp.join('/');
-  const c = CATEGORIES.find(c => c.title === cat);
-  if (c) openLb(c.dir + '/' + f, f);
-}
-document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) closeLb(); });
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('active')) return;
-  if (e.key === 'Escape') closeLb();
-  if (e.key === 'ArrowLeft') lbNav(-1);
-  if (e.key === 'ArrowRight') lbNav(1);
+
+Object.entries(sections).forEach(([id, {dir, files}]) => {
+  const grid = document.getElementById(id);
+  files.forEach((f, i) => {
+    const src = dir + '/' + f;
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<img src="${src}" alt="${f}" onclick="openLb('${src}')"><div class="label">#${i+1}</div>`;
+    grid.appendChild(card);
+  });
 });
-
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  renderPicks();
-}
-
-function renderPicks() {
-  const list = document.getElementById('picks-list');
-  const picks = Object.entries(state).filter(([_, s]) => s.selected || s.rating > 0);
-  if (!picks.length) { list.innerHTML = '<p style="color:#666">No picks yet. Click images to select, star to rate.</p>'; return; }
-  const grouped = {};
-  picks.forEach(([k, s]) => {
-    const [cat, ...fp] = k.split('/');
-    if (!grouped[cat]) grouped[cat] = [];
-    grouped[cat].push({ file: fp.join('/'), ...s });
-  });
-  list.innerHTML = Object.entries(grouped).map(([cat, items]) => `
-    <div class="cat-group"><h4>${cat}</h4>
-    ${items.map(i => `<div class="pick-item">
-      <img src="${(CATEGORIES.find(c=>c.title===cat)||{dir:''}).dir}/${i.file}">
-      <span>${i.file.substring(0,30)}${i.file.length>30?'…':''}</span>
-      <span class="pick-stars">${'★'.repeat(i.rating)}${'☆'.repeat(3-i.rating)}</span>
-    </div>`).join('')}
-    </div>
-  `).join('');
-}
-
-function getPicksJSON() {
-  const picks = Object.entries(state).filter(([_, s]) => s.selected || s.rating > 0);
-  return picks.map(([k, s]) => {
-    const [cat, ...fp] = k.split('/');
-    return { category: cat, filename: fp.join('/'), selected: s.selected, rating: s.rating };
-  });
-}
-
-function copyPicks() {
-  const json = JSON.stringify(getPicksJSON(), null, 2);
-  navigator.clipboard.writeText(json).then(() => toast('Picks copied to clipboard!')).catch(() => {
-    // fallback
-    const ta = document.createElement('textarea'); ta.value = json; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
-    toast('Picks copied!');
-  });
-}
-
-function showPicksSummary() {
-  const json = JSON.stringify(getPicksJSON(), null, 2);
-  const w = window.open('', '_blank');
-  w.document.write(`<pre style="background:#0a0a0f;color:#00ffff;padding:2rem;font-family:monospace">${json}</pre>`);
-}
-
-function clearAll() {
-  if (!confirm('Clear all selections and ratings?')) return;
-  state = {}; save(); localStorage.removeItem('based-picks');
-  document.querySelectorAll('.card').forEach(c => { c.classList.remove('selected'); c.querySelectorAll('.stars span').forEach(s => s.classList.remove('on')); });
-  renderPicks(); toast('All picks cleared');
-}
-
-// Init
-async function init() {
-  // Load file lists
-  try {
-    const r = await fetch('filelist.json');
-    const data = await r.json();
-    CATEGORIES.forEach(cat => {
-      cat.files = data[cat.key] || [];
-    });
-  } catch(e) { console.error('Failed to load filelist.json', e); }
-
-  // Load Rybo picks
-  try {
-    const r = await fetch('rybo-picks.json');
-    if (r.ok) {
-      const picks = await r.json();
-      (Array.isArray(picks) ? picks : []).forEach(p => {
-        if (typeof p === 'string') ryboPicks[p] = true;
-        else if (p.filename) ryboPicks[p.filename] = true;
-      });
-    }
-  } catch(e) {}
-
-  const app = document.getElementById('app');
-  CATEGORIES.forEach(cat => {
-    if (!cat.files.length) return;
-    const h = document.createElement('h2');
-    h.textContent = cat.title + ` (${cat.files.length})`;
-    app.appendChild(h);
-    const g = document.createElement('div'); g.className = 'grid'; app.appendChild(g);
-    cat.files.forEach(f => renderCard(cat, f, g));
-  });
-  updateCount();
-}
-init();
 </script>
 </body>
 </html>

@@ -1,78 +1,15 @@
 {
-  "favicons": [
-    "001-minimalist-shield-badge-icon-for-a-tech-.png",
-    "002-minimalist-shield-badge-icon-for-a-tech-.png",
-    "003-minimalist-shield-badge-icon-for-a-tech-.png",
-    "004-minimalist-shield-badge-icon-for-a-tech-.png"
+  "charles_v3": [
+    "001-comic-book-style-portrait-of-a-male-ai-a.png",
+    "002-comic-book-style-portrait-of-a-male-ai-a.png",
+    "003-comic-book-style-portrait-of-a-male-ai-a.png",
+    "004-comic-book-style-portrait-of-a-male-ai-a.png",
+    "005-comic-book-style-portrait-of-a-male-ai-a.png",
+    "006-comic-book-style-portrait-of-a-male-ai-a.png"
   ],
-  "category_icons": [
-    "001-neon-line-art-icon-of-a-hotel-building-w.webp",
-    "001-neon-line-art-icon-of-a-microscope-with-.webp",
-    "001-neon-line-art-icon-of-a-party-popper-wit.webp",
-    "001-neon-line-art-icon-of-a-rising-bar-chart.webp",
-    "001-neon-line-art-icon-of-an-open-book-with-.webp",
-    "001-neon-line-art-icon-of-interlocking-gears.webp",
-    "002-neon-line-art-icon-of-a-hotel-building-w.webp",
-    "002-neon-line-art-icon-of-a-microscope-with-.webp",
-    "002-neon-line-art-icon-of-a-party-popper-wit.webp",
-    "002-neon-line-art-icon-of-a-rising-bar-chart.webp",
-    "002-neon-line-art-icon-of-an-open-book-with-.webp",
-    "002-neon-line-art-icon-of-interlocking-gears.webp"
-  ],
-  "og_cards": [
-    "001-social-media-preview-card-for-based-comm.png",
-    "002-social-media-preview-card-for-based-comm.png",
-    "003-social-media-preview-card-for-based-comm.png"
-  ],
-  "backgrounds": [
-    "001-seamless-dark-circuit-board-texture-patt.png",
-    "002-seamless-dark-circuit-board-texture-patt.png",
-    "003-seamless-dark-circuit-board-texture-patt.png"
-  ],
-  "logo_variants": [
+  "logo_synthwave": [
     "001-a-shield-badge-shaped-logo-for-based-bar.png",
-    "002-a-shield-badge-shaped-logo-for-based-bar.png"
-  ],
-  "avatars_ace": [
-    "001-comic-book-style-portrait-of-ace-a-male-.png",
-    "002-comic-book-style-portrait-of-ace-a-male-.png",
-    "003-comic-book-style-portrait-of-ace-a-male-.png"
-  ],
-  "avatars_astra": [
-    "001-comic-book-style-portrait-of-astra-a-fem.png",
-    "002-comic-book-style-portrait-of-astra-a-fem.png",
-    "003-comic-book-style-portrait-of-astra-a-fem.png"
-  ],
-  "avatars_charles": [
-    "001-comic-book-style-portrait-of-charles-a-m.png",
-    "002-comic-book-style-portrait-of-charles-a-m.png",
-    "003-comic-book-style-portrait-of-charles-a-m.png"
-  ],
-  "avatars_dezayas": [
-    "001-comic-book-style-portrait-of-dezayas-a-m.png",
-    "002-comic-book-style-portrait-of-dezayas-a-m.png",
-    "003-comic-book-style-portrait-of-dezayas-a-m.png"
-  ],
-  "avatars_rybo": [
-    "001-comic-book-style-portrait-of-rybo-a-male.png",
-    "002-comic-book-style-portrait-of-rybo-a-male.png",
-    "003-comic-book-style-portrait-of-rybo-a-male.png"
-  ],
-  "agent_avatars": [
-    "001-comic-book-style-portrait-of-ace-a-male-.png",
-    "001-comic-book-style-portrait-of-astra-a-fem.png",
-    "001-comic-book-style-portrait-of-charles-a-m.png",
-    "001-comic-book-style-portrait-of-dezayas-a-m.png",
-    "001-comic-book-style-portrait-of-rybo-a-male.png",
-    "002-comic-book-style-portrait-of-ace-a-male-.png",
-    "002-comic-book-style-portrait-of-astra-a-fem.png",
-    "002-comic-book-style-portrait-of-charles-a-m.png",
-    "002-comic-book-style-portrait-of-dezayas-a-m.png",
-    "002-comic-book-style-portrait-of-rybo-a-male.png",
-    "003-comic-book-style-portrait-of-ace-a-male-.png",
-    "003-comic-book-style-portrait-of-astra-a-fem.png",
-    "003-comic-book-style-portrait-of-charles-a-m.png",
-    "003-comic-book-style-portrait-of-dezayas-a-m.png",
-    "003-comic-book-style-portrait-of-rybo-a-male.png"
+    "002-a-shield-badge-shaped-logo-for-based-bar.png",
+    "003-a-shield-badge-shaped-logo-for-based-bar.png"
   ]
 }
