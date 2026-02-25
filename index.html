@@ -94,12 +94,16 @@ h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:#00ffff;border-botto
 
 <script>
 const CATEGORIES = [
-  { title: "Agent Avatars", dir: "assets/agent-avatars", files: [] },
-  { title: "Category Icons", dir: "assets/category-icons", files: [] },
-  { title: "Favicons", dir: "assets/favicons", files: [] },
-  { title: "OG Cards", dir: "assets/og-cards", files: [] },
-  { title: "Backgrounds", dir: "assets/backgrounds", files: [] },
-  { title: "Logo Variants", dir: "assets/logo-variants", files: [] },
+  { title: "Ace — Chief of Staff ♠️", dir: "assets/agent-avatars/ace", key: "avatars_ace", files: [] },
+  { title: "Astra — Strategist 🔮", dir: "assets/agent-avatars/astra", key: "avatars_astra", files: [] },
+  { title: "Charles — Historian 📜", dir: "assets/agent-avatars/charles", key: "avatars_charles", files: [] },
+  { title: "Dezayas — Builder 🔧", dir: "assets/agent-avatars/dezayas", key: "avatars_dezayas", files: [] },
+  { title: "Rybo — Jester 🃏", dir: "assets/agent-avatars/rybo", key: "avatars_rybo", files: [] },
+  { title: "Category Icons", dir: "assets/category-icons", key: "category_icons", files: [] },
+  { title: "Favicons", dir: "assets/favicons", key: "favicons", files: [] },
+  { title: "OG Cards", dir: "assets/og-cards", key: "og_cards", files: [] },
+  { title: "Backgrounds", dir: "assets/backgrounds", key: "backgrounds", files: [] },
+  { title: "Logo Variants", dir: "assets/logo-variants", key: "logo_variants", files: [] },
 ];
 
 // State: { "category/filename": { selected: bool, rating: 0-3 } }
@@ -264,12 +268,9 @@ async function init() {
   try {
     const r = await fetch('filelist.json');
     const data = await r.json();
-    CATEGORIES[0].files = data.agent_avatars || [];
-    CATEGORIES[1].files = data.category_icons || [];
-    CATEGORIES[2].files = data.favicons || [];
-    CATEGORIES[3].files = data.og_cards || [];
-    CATEGORIES[4].files = data.backgrounds || [];
-    CATEGORIES[5].files = data.logo_variants || [];
+    CATEGORIES.forEach(cat => {
+      cat.files = data[cat.key] || [];
+    });
   } catch(e) { console.error('Failed to load filelist.json', e); }
 
   // Load Rybo picks
