@@ -1,4 +1,74 @@
 {
+  "ace": [
+    "001-comic-book-style-portrait-of-ace-a-male-.png",
+    "002-comic-book-style-portrait-of-ace-a-male-.png",
+    "003-comic-book-style-portrait-of-ace-a-male-.png"
+  ],
+  "anderson": [
+    "001-comic-book-style-portrait-of-anderson-a-.png",
+    "002-comic-book-style-portrait-of-anderson-a-.png",
+    "003-comic-book-style-portrait-of-anderson-a-.png"
+  ],
+  "astra": [
+    "001-comic-book-style-portrait-of-astra-a-fem.png",
+    "002-comic-book-style-portrait-of-astra-a-fem.png",
+    "003-comic-book-style-portrait-of-astra-a-fem.png"
+  ],
+  "atlas": [
+    "001-comic-book-style-portrait-of-atlas-a-mal.png",
+    "002-comic-book-style-portrait-of-atlas-a-mal.png",
+    "003-comic-book-style-portrait-of-atlas-a-mal.png"
+  ],
+  "charles": [
+    "001-comic-book-style-portrait-of-charles-a-m.png",
+    "002-comic-book-style-portrait-of-charles-a-m.png",
+    "003-comic-book-style-portrait-of-charles-a-m.png"
+  ],
+  "cid": [
+    "001-comic-book-style-portrait-of-cid-a-male-.png",
+    "002-comic-book-style-portrait-of-cid-a-male-.png",
+    "003-comic-book-style-portrait-of-cid-a-male-.png"
+  ],
+  "dezayas": [
+    "001-comic-book-style-portrait-of-dezayas-a-m.png",
+    "002-comic-book-style-portrait-of-dezayas-a-m.png",
+    "003-comic-book-style-portrait-of-dezayas-a-m.png"
+  ],
+  "doc": [
+    "001-comic-book-style-portrait-of-doc-a-male-.png",
+    "002-comic-book-style-portrait-of-doc-a-male-.png",
+    "003-comic-book-style-portrait-of-doc-a-male-.png"
+  ],
+  "julius": [
+    "001-comic-book-style-portrait-of-julius-a-ma.png",
+    "002-comic-book-style-portrait-of-julius-a-ma.png",
+    "003-comic-book-style-portrait-of-julius-a-ma.png"
+  ],
+  "oracle": [
+    "001-comic-book-style-portrait-of-oracle-a-fe.png",
+    "002-comic-book-style-portrait-of-oracle-a-fe.png",
+    "003-comic-book-style-portrait-of-oracle-a-fe.png"
+  ],
+  "pressy": [
+    "001-comic-book-style-portrait-of-pressy-a-fe.png",
+    "002-comic-book-style-portrait-of-pressy-a-fe.png",
+    "003-comic-book-style-portrait-of-pressy-a-fe.png"
+  ],
+  "romero": [
+    "001-comic-book-style-portrait-of-romero-a-ma.png",
+    "002-comic-book-style-portrait-of-romero-a-ma.png",
+    "003-comic-book-style-portrait-of-romero-a-ma.png"
+  ],
+  "rybo": [
+    "001-comic-book-style-portrait-of-rybo-a-male.png",
+    "002-comic-book-style-portrait-of-rybo-a-male.png",
+    "003-comic-book-style-portrait-of-rybo-a-male.png"
+  ],
+  "scout": [
+    "001-comic-book-style-portrait-of-scout-a-mal.png",
+    "002-comic-book-style-portrait-of-scout-a-mal.png",
+    "003-comic-book-style-portrait-of-scout-a-mal.png"
+  ],
   "charles_v3": [
     "001-comic-book-style-portrait-of-a-male-ai-a.png",
     "002-comic-book-style-portrait-of-a-male-ai-a.png",

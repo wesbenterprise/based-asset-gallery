@@ -6,49 +6,55 @@
 <title>BASeD Asset Gallery — Review</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0f; color: #e0e0e0; font-family: 'SF Mono', 'Fira Code', monospace; padding: 2rem; }
+  body { background: #0a0a0f; color: #e0e0e0; font-family: 'Inter', 'SF Mono', sans-serif; padding: 2rem; }
   h1 { color: #00e5ff; font-size: 1.6rem; margin-bottom: 0.5rem; }
   .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2.5rem; }
   h2 { color: #ff6ec7; font-size: 1.2rem; margin: 2rem 0 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+  h2.divider { color: #444; margin-top: 3rem; border-bottom: 2px solid #222; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
-  .card { background: #111118; border: 1px solid #1a1a2e; border-radius: 8px; overflow: hidden; transition: border-color 0.2s; }
+  .card { background: #111118; border: 1px solid #1a1a2e; border-radius: 8px; overflow: hidden; transition: border-color 0.2s; position: relative; }
   .card:hover { border-color: #00e5ff; }
   .card img { width: 100%; height: auto; display: block; cursor: pointer; }
-  .card .label { padding: 0.6rem 0.8rem; font-size: 0.75rem; color: #888; word-break: break-all; }
+  .card .label { padding: 0.6rem 0.8rem; font-size: 0.75rem; color: #888; }
+  .badge { position: absolute; top: 8px; right: 8px; background: #00e5ff; color: #0a0a0f; font-size: 0.7rem; font-weight: bold; padding: 2px 8px; border-radius: 4px; z-index: 2; }
   .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
   .lightbox.active { display: flex; }
   .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>🎨 BASeD Asset Gallery — Review</h1>
-<p class="subtitle">Only items pending Wesley's review. Everything else already picked.</p>
+<h1>🎨 BASeD Asset Gallery — Agent Avatars</h1>
+<p class="subtitle">Pick one avatar per agent. Click to enlarge. 3 options each.</p>
 
-<h2>📜 Charles — Historian (v3, Early 40s)</h2>
-<div class="grid" id="charles"></div>
-
-<h2>🌆 Logo Variants — Synthwave</h2>
-<div class="grid" id="logos"></div>
+<div id="gallery"></div>
 
 <div class="lightbox" id="lb" onclick="this.classList.remove('active')">
   <img id="lb-img" src="" alt="preview">
 </div>
 
 <script>
-const sections = {
-  charles: { dir: 'assets/charles-v3', files: [
-    '001-comic-book-style-portrait-of-a-male-ai-a.png',
-    '002-comic-book-style-portrait-of-a-male-ai-a.png',
-    '003-comic-book-style-portrait-of-a-male-ai-a.png',
-    '004-comic-book-style-portrait-of-a-male-ai-a.png',
-    '005-comic-book-style-portrait-of-a-male-ai-a.png',
-    '006-comic-book-style-portrait-of-a-male-ai-a.png'
-  ]},
-  logos: { dir: 'assets/logo-synthwave', files: [
-    '001-a-shield-badge-shaped-logo-for-based-bar.png',
-    '002-a-shield-badge-shaped-logo-for-based-bar.png',
-    '003-a-shield-badge-shaped-logo-for-based-bar.png'
-  ]}
+const agentMeta = {
+  romero:  { emoji: '🎨', title: 'Romero — Visual Designer', isNew: true },
+  julius:  { emoji: '🌉', title: 'Julius — Philanthropic Advisor', isNew: true },
+  cid:     { emoji: '🎮', title: 'Cid — Game Designer', isNew: true },
+  anderson:{ emoji: '📊', title: 'Anderson — Financial Analyst', isNew: true },
+  scout:   { emoji: '🦅', title: 'Scout — Real-Time Intelligence', isNew: true },
+  atlas:   { emoji: '🗺️', title: 'Atlas — Deep Research', isNew: true },
+  oracle:  { emoji: '🔮', title: 'Oracle — Security & Awareness', isNew: true },
+  pressy:  { emoji: '📢', title: 'Pressy — Communications', isNew: true },
+  doc:     { emoji: '🩺', title: 'Doc — Health & Wellness', isNew: true },
+  ace:     { emoji: '♠️', title: 'Ace — Chief of Staff', isNew: false },
+  astra:   { emoji: '⚡', title: 'Astra — Strategist', isNew: false },
+  dezayas: { emoji: '🔧', title: 'Dezayas — Builder', isNew: false },
+  rybo:    { emoji: '🎭', title: 'Rybo — The Pragmatist', isNew: false },
+  charles: { emoji: '📜', title: 'Charles — Historian', isNew: false },
+};
+
+const specialSections = {
+  charles_v3:     { title: '📜 Charles v3 Variants', dir: 'assets/charles-v3' },
+  logo_synthwave: { title: '🌆 Logo Variants — Synthwave', dir: 'assets/logo-synthwave' },
 };
 
 function openLb(src) {
@@ -56,14 +62,60 @@ function openLb(src) {
   document.getElementById('lb').classList.add('active');
 }
 
-Object.entries(sections).forEach(([id, {dir, files}]) => {
-  const grid = document.getElementById(id);
-  files.forEach((f, i) => {
-    const src = dir + '/' + f;
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `<img src="${src}" alt="${f}" onclick="openLb('${src}')"><div class="label">#${i+1}</div>`;
-    grid.appendChild(card);
+fetch('filelist.json').then(r => r.json()).then(data => {
+  const gallery = document.getElementById('gallery');
+  const newAgents = Object.keys(agentMeta).filter(k => agentMeta[k].isNew);
+  const existingAgents = Object.keys(agentMeta).filter(k => !agentMeta[k].isNew);
+
+  // New agents header
+  const newHeader = document.createElement('h2');
+  newHeader.className = 'divider';
+  newHeader.style.color = '#00e5ff';
+  newHeader.textContent = '🆕 New — Needs Your Pick';
+  gallery.appendChild(newHeader);
+
+  function renderSection(key, files, dir, title, isNew) {
+    const h = document.createElement('h2');
+    h.textContent = title;
+    gallery.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    files.forEach((f, i) => {
+      const src = dir + '/' + f;
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = (isNew ? '<span class="badge">NEW</span>' : '') +
+        '<img src="' + src + '" alt="' + key + ' option ' + (i+1) + '" onclick="openLb(\'' + src + '\')">' +
+        '<div class="label">#' + (i+1) + '</div>';
+      grid.appendChild(card);
+    });
+    gallery.appendChild(grid);
+  }
+
+  // Render new agents
+  newAgents.forEach(agent => {
+    if (!data[agent]) return;
+    const meta = agentMeta[agent];
+    renderSection(agent, data[agent], 'assets/agent-avatars/' + agent, meta.emoji + ' ' + meta.title, true);
+  });
+
+  // Existing agents header
+  const existHeader = document.createElement('h2');
+  existHeader.className = 'divider';
+  existHeader.textContent = '✅ Current Avatars (Already Picked)';
+  gallery.appendChild(existHeader);
+
+  // Render existing agents
+  existingAgents.forEach(agent => {
+    if (!data[agent]) return;
+    const meta = agentMeta[agent];
+    renderSection(agent, data[agent], 'assets/agent-avatars/' + agent, meta.emoji + ' ' + meta.title, false);
+  });
+
+  // Special sections
+  Object.entries(specialSections).forEach(([key, sec]) => {
+    if (!data[key]) return;
+    renderSection(key, data[key], sec.dir, sec.title, false);
   });
 });
 </script>
